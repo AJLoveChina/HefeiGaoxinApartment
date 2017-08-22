@@ -91,6 +91,7 @@ function alert() {
     // run(list[0]);
 
     function loop() {
+        if (!isPolling) return;
         console.log("==============" + moment().format('LTS') + "====================");
         list.forEach(function (config) {
             run(config);
@@ -98,8 +99,6 @@ function alert() {
     }
 
     function run(map) {
-        if (!isPolling) return;
-
         let findList = [];
 
         request.post(
