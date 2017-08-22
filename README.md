@@ -12,7 +12,7 @@
 git clone https://github.com/AJLoveChina/HefeiGaoxinApartment
 cd HefeiGaoxinApartment
 npm install
-node run
+node index
 ```
 
 
