@@ -9,6 +9,7 @@ var moment = require("moment");
 
 let request = require('request');
 let isPolling = true;
+let interval = 5; // 5 minutes
 
 
 function alert() {
@@ -81,8 +82,11 @@ function alert() {
         }];
 
 
+	console.log("\n每" + interval + "分钟查询三座公寓所有楼层，查询到空房间后会停止查询并把空房间打印在控制台上");
+	console.log("如果你安装了chrome,会弹出Chrome浏览器提示你！你要做的只是喝喝咖啡静静等候~\n");
+	
     loop();
-    setInterval(loop, 1000 * 60 * 10); 
+    setInterval(loop, 1000 * 60 * interval); 
 
     // run(list[0]);
 
