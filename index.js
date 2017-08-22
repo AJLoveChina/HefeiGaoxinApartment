@@ -5,7 +5,7 @@
 let webdriver = require('selenium-webdriver'),
     By = webdriver.By,
     until = webdriver.until;
-var moment = require("moment")();
+var moment = require("moment");
 
 let request = require('request');
 let isPolling = true;
@@ -87,7 +87,7 @@ function alert() {
     // run(list[0]);
 
     function loop() {
-        console.log("==============" + moment.format('LTS') + "====================");
+        console.log("==============" + moment().format('LTS') + "====================");
         list.forEach(function (config) {
             run(config);
         })
