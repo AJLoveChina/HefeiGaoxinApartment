@@ -24,56 +24,57 @@ function alert() {
     // 明珠公寓
     var list = [
         {
-			desc : "明珠东楼男生",
+            desc : "明珠东楼男生",
             url: "http://36.7.87.172:8088/online/roomResource.xp?action=formList1",
             data: {
                 "code": "01",
                 "buildingCode": "0011502190427062JFn"  // 明珠东楼男生
             }
-        }, {
-		desc : "创新A座",
+        }
+        , {
+            desc : "创新A座",
             url: "http://36.7.87.209:8088/online/roomResource.xp?action=formList1",
             data: {
                 "code": "01",
                 "buildingCode": "0011502154277240phA"  //创新A座
             }
         }, {
-		desc : "创新B座",
+            desc : "创新B座",
             url: "http://36.7.87.209:8088/online/roomResource.xp?action=formList1",
             data: {
                 "code": "01",
                 "buildingCode": "0011502154321961NnF"  //创新B座
             }
         }, {
-		desc : "创新C座",
+            desc : "创新C座",
             url: "http://36.7.87.209:8088/online/roomResource.xp?action=formList1",
             data: {
                 "code": "01",
                 "buildingCode": "0011502154352377wUW"  //创新C座
             }
         }, {
-		desc : "皖水公寓1#",
+            desc : "皖水公寓1#",
             url: "http://117.71.57.99:9080/online/roomResource.xp?action=formList1",
             data: {
                 "code": "01",
                 "buildingCode": "0011449816806945psc"  //皖水公寓1#
             }
         }, {
-		desc : "皖水公寓2#",
+            desc : "皖水公寓2#",
             url: "http://117.71.57.99:9080/online/roomResource.xp?action=formList1",
             data: {
                 "code": "01",
                 "buildingCode": "0011449816830250MuI"  //皖水公寓2#
             }
         }, {
-		desc : "皖水公寓 综合楼东",
+            desc : "皖水公寓 综合楼东",
             url: "http://117.71.57.99:9080/online/roomResource.xp?action=formList1",
             data: {
                 "code": "01",
                 "buildingCode": "0011449816876736sfx"  //皖水公寓 综合楼东
             }
         }, {
-		desc : "皖水公寓 综合楼西",
+            desc : "皖水公寓 综合楼西",
             url: "http://117.71.57.99:9080/online/roomResource.xp?action=formList1",
             data: {
                 "code": "01",
@@ -82,11 +83,11 @@ function alert() {
         }];
 
 
-	console.log("\n每" + interval + "分钟查询三座公寓所有楼层，查询到空房间后会停止查询并把空房间打印在控制台上");
-	console.log("如果你安装了chrome,会弹出Chrome浏览器提示你！你要做的只是喝喝咖啡静静等候~\n");
-	
+    console.log("\n每" + interval + "分钟查询三座公寓所有楼层，查询到空房间后会停止查询并把空房间打印在控制台上");
+    console.log("如果你安装了chrome,会弹出Chrome浏览器提示你！你要做的只是喝喝咖啡静静等候~\n");
+
     loop();
-    setInterval(loop, 1000 * 60 * interval); 
+    setInterval(loop, 1000 * 60 * interval);
 
     // run(list[0]);
 
@@ -113,6 +114,9 @@ function alert() {
                         isPolling = false;
                         console.log(map.desc);
                         console.log(findList.join(","));
+                        console.log("已经查询到房间，自动查询终止！！");
+                        console.log("输入 node index 可以继续运行！！")
+                        process.exit();
                         alert();
                     } else {
                         console.log("No room for \t" + map.desc);
