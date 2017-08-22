@@ -3,7 +3,7 @@
 
 ### What you need?
 <ol>
-  <li>node and npm</li>
+  <li>node npm and git <i>(git is not required if you know to download the project to your disk)</i></li>
   <li>Chrome(Not required. It will popup when empty rooms found)</li>
 </ol>
 
