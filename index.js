@@ -111,6 +111,7 @@ function alert() {
 
                     if (findList.length > 0) {
                         isPolling = false;
+                        console.log(map.desc);
                         console.log(findList.join(","));
                         alert();
                     } else {
