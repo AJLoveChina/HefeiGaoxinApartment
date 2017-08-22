@@ -10,7 +10,8 @@
 ### How to use?
 ```bash
 git clone https://github.com/AJLoveChina/HefeiGaoxinApartment
-npm instll
+cd HefeiGaoxinApartment
+npm install
 node run
 ```
 
