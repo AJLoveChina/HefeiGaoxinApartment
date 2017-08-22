@@ -17,7 +17,10 @@ function alert() {
         .forBrowser("chrome")
         .build();
 
-    driver.get("http://www.baidu.com");
+    driver.get("http://www.baidu.com").then(function () {
+        process.exit(0);
+    });
+
 }
 
 (function () {
@@ -115,8 +118,6 @@ function alert() {
                         console.log(map.desc);
                         console.log(findList.join(","));
                         console.log("已经查询到房间，自动查询终止！！");
-                        console.log("输入 node index 可以继续运行！！")
-                        process.exit();
                         alert();
                     } else {
                         console.log("No room for \t" + map.desc);
