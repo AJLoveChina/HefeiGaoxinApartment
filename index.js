@@ -2,9 +2,7 @@
  * Created by hejie2.0
  * Coding love on 2017/8/22.
  */
-let webdriver = require('selenium-webdriver'),
-    By = webdriver.By,
-    until = webdriver.until;
+let opn = require("opn");
 var moment = require("moment");
 
 let request = require('request');
@@ -14,11 +12,8 @@ let interval = config.interval; // 5 minutes
 
 
 function alert() {
-    let driver = new webdriver.Builder()
-        .forBrowser("chrome")
-        .build();
 
-    driver.get("http://www.baidu.com").then(function () {
+    opn.open("http://www.baidu.com").then(() => {
         process.exit(0);
     });
 
