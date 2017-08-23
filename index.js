@@ -13,7 +13,7 @@ let interval = config.interval; // 5 minutes
 
 function alert() {
 
-    opn.open("http://www.baidu.com").then(() => {
+    opn("http://www.baidu.com").then(() => {
         process.exit(0);
     });
 
