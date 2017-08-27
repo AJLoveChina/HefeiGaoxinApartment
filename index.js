@@ -11,11 +11,14 @@ let config = require("./config");
 let interval = config.interval; // 5 minutes
 
 
-function alert() {
-
-    opn("http://www.baidu.com").then(() => {
-        process.exit(0);
-    });
+function alert(map) {
+	var url = map.url.replace(/roomResource\S+$/, "");
+	try {
+		opn(url);
+	} catch(ex){}
+    opn("Tulips.jpg").then(() => {
+        //process.exit(1);
+    })
 
 }
 
@@ -123,7 +126,7 @@ function alert() {
                         console.log(map.desc);
                         console.log(findList.join(","));
                         console.log("已经查询到房间，自动查询终止！！");
-                        alert();
+                        alert(map);
                     } else {
                         console.log("No room for \t" + map.desc);
                     }
