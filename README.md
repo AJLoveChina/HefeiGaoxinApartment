@@ -27,6 +27,7 @@ But it's best (not required) for you to install Chrome, cause empty rooms found,
 <li>6.打开工具目录, 打开config.js, 在指定位置写入(如下图所示)</li>
 <li>7.其它俩个公寓同理, 重复1-6步骤. 都完成后双击run.bat开始运行</li>
 </ul>
+
 ![ScreenShot](https://raw.github.com/AJLoveChina/HefeiGaoxinApartment/master/asserts/config-cookie.png?t=2018年1月19日)
 
 
