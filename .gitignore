@@ -1,4 +1,5 @@
 .idea
 
 config.js
-config.js
+/node_modules
+node_modules
