@@ -9,9 +9,8 @@ You don't need to install anything else.
 But it's best (not required) for you to install Chrome, cause empty rooms found, your chrome will popup to tell you there is an empty room!^_^
 
 ### How to use?
-<strike>Just double click `run.bat`</strike>
-
-
 2018年02月02日 更新\
-高新区三个公寓网站添加了Session认证, 所以在使用前需要填写用户名与密码\
-![ScreenShot](https://raw.github.com/AJLoveChina/HefeiGaoxinApartment/master/asserts/namandpass.png?t=2018年1月19日)
+高新区三个公寓网站添加了Session认证, 所以在使用前需要填写用户名与密码, 如下图所示.
+填写完成之后双击 run.bat即可^_^
+
+![ScreenShot](https://raw.github.com/AJLoveChina/HefeiGaoxinApartment/master/asserts/nameandpass.png?t=2018年2月2日)
