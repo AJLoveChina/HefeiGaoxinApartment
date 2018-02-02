@@ -27,9 +27,10 @@ But it's best (not required) for you to install Chrome, cause empty rooms found,
 <li>6.打开工具目录, 打开config.js, 在指定位置写入(如下图所示)</li>
 <li>7.其它俩个公寓同理, 重复1-6步骤. 都完成后双击run.bat开始运行</li>
 </ul>
+
 ![ScreenShot](https://raw.github.com/AJLoveChina/HefeiGaoxinApartment/master/asserts/config-cookie.png?t=2018年1月19日)
 
 
 >备注:你也不是每个公寓的cookie都要获取, 如果你只打算申请皖水公寓, 只要获取皖水公寓的cookie即可, 其它公寓的cookie不填, 执行过程中报请求错误可以忽略
 
-[![](http://i.imgur.com/5RHR6Ku.png)](http://hejie.nigeerhuo.com)
+[![](http://hm-front-end-code-1251259897.cossh.myqcloud.com/Github-Images/opensource.png)](http://hejie.nigeerhuo.com)
