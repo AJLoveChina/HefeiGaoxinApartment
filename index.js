@@ -3,7 +3,8 @@
  * Coding love on 2017/8/22.
  */
 let opn = require('opn')
-var moment = require('moment')
+const moment = require('moment')
+const axios = require('axios')
 
 let request = require('request')
 let isPolling = true
@@ -14,9 +15,9 @@ let list = [
     id: 1,
     desc: '明珠东楼男生',
     url: 'http://36.7.87.172:8088/online/apply.do?action=formList',
-    cookie : config.cookie.minzhu,
-    from : 4, // 5楼开始
-    to : 16, // 24楼结束
+    cookie: 'minzhu',
+    from: 4, // 5楼开始
+    to: 16, // 24楼结束
     data: {
       'code': '01',
       'buildingCode': '0011502190427062JFn'  // 明珠东楼男生
@@ -26,9 +27,9 @@ let list = [
     id: 11,
     desc: '明珠东楼女生',
     url: 'http://36.7.87.172:8088/online/apply.do?action=formList',
-    cookie : config.cookie.minzhu,
-    from : 4, // 5楼开始
-    to : 16, // 24楼结束
+    cookie: 'minzhu',
+    from: 4, // 5楼开始
+    to: 16, // 24楼结束
     data: {
       'code': '01',
       'buildingCode': '0011502190427062JFn'  // 明珠东楼男生
@@ -38,9 +39,9 @@ let list = [
     id: 2,
     desc: '创新A座',
     url: 'http://36.7.87.209:8088/online/apply.do?action=formList',
-    cookie : config.cookie.chuangxin,
-    from : 5, // 5楼开始
-    to : 24, // 24楼结束
+    cookie: 'chuangxin',
+    from: 5, // 5楼开始
+    to: 24, // 24楼结束
     data: {
       'code': '01',
       'buildingCode': '0011502154277240phA',  //创新A座,
@@ -50,9 +51,9 @@ let list = [
     id: 3,
     desc: '创新B座',
     url: 'http://36.7.87.209:8088/online/apply.do?action=formList',
-    cookie : config.cookie.chuangxin,
-    from : 5, // 5楼开始
-    to : 24, // 24楼结束
+    cookie: 'chuangxin',
+    from: 5, // 5楼开始
+    to: 24, // 24楼结束
     data: {
       'code': '01',
       'buildingCode': '0011502154321961NnF'  //创新B座
@@ -62,9 +63,9 @@ let list = [
     id: 4,
     desc: '创新C座',
     url: 'http://36.7.87.209:8088/online/apply.do?action=formList',
-    cookie : config.cookie.chuangxin,
-    from : 5, // 5楼开始
-    to : 24, // 24楼结束
+    cookie: 'chuangxin',
+    from: 5, // 5楼开始
+    to: 24, // 24楼结束
     data: {
       'code': '01',
       'buildingCode': '0011502154352377wUW'  //创新C座
@@ -73,9 +74,9 @@ let list = [
     id: 5,
     desc: '皖水公寓1#',
     url: 'http://117.71.57.99:9080/online/apply.do?action=formList',
-    cookie : config.cookie.wanshui,
-    from : 2, // 5楼开始
-    to : 26, // 24楼结束
+    cookie: 'wanshui',
+    from: 2, // 5楼开始
+    to: 26, // 24楼结束
     data: {
       'code': '01',
       'buildingCode': '0011449816806945psc'  //皖水公寓1#
@@ -84,9 +85,9 @@ let list = [
     id: 6,
     desc: '皖水公寓2#',
     url: 'http://117.71.57.99:9080/online/apply.do?action=formList',
-    cookie : config.cookie.wanshui,
-    from : 2, // 5楼开始
-    to : 26, // 24楼结束
+    cookie: 'wanshui',
+    from: 2, // 5楼开始
+    to: 26, // 24楼结束
     data: {
       'code': '01',
       'buildingCode': '0011449816830250MuI'  //皖水公寓2#
@@ -95,9 +96,9 @@ let list = [
     id: 7,
     desc: '皖水公寓 综合楼东',
     url: 'http://117.71.57.99:9080/online/apply.do?action=formList',
-    cookie : config.cookie.wanshui,
-    from : 4, // 5楼开始
-    to : 28, // 24楼结束
+    cookie: 'wanshui',
+    from: 4, // 5楼开始
+    to: 28, // 24楼结束
     data: {
       'code': '01',
       'buildingCode': '0011449816876736sfx'  //皖水公寓 综合楼东
@@ -106,15 +107,15 @@ let list = [
     id: 8,
     desc: '皖水公寓 综合楼西',
     url: 'http://117.71.57.99:9080/online/apply.do?action=formList',
-    cookie : config.cookie.wanshui,
-    from : 4, // 5楼开始
-    to : 28, // 24楼结束
+    cookie: 'wanshui',
+    from: 4, // 5楼开始
+    to: 28, // 24楼结束
     data: {
       'code': '01',
       'buildingCode': '0011449816949458BXk'  //皖水公寓 综合楼西
     }
   }
-  ];
+];
 
 function alert (map) {
   var url = map.url.replace(/roomResource\S+$/, '')
@@ -127,12 +128,77 @@ function alert (map) {
 }
 
 (function () {
+  refreshCookie().then(function () {
+    console.log("模拟登陆完成");
+    runNow();
+  }).catch(function (ex) {
+    console.log("模拟登陆失败, 失败原因 : " + ex.message);
+  })
+})()
+
+function refreshCookie () {
+  isPolling = false;
+  var promiseList = [];
+  for (var k in config.userAndPass) {
+    let user = config.userAndPass[k]
+    if (user.name && user.pass) {
+      promiseList.push(getCookie(k, user));
+    }
+  }
+
+  return new Promise(function (resolve, reject) {
+    if (promiseList.length == 0) {
+      reject(new Error("没有任何一个公寓填入了用户名密码信息"))
+    } else {
+      Promise.all(promiseList).then(function () {
+        isPolling = true;
+        console.log("cookie 已刷新");
+        resolve();
+      }).catch(function () {
+        reject("用户名密码不正确")
+      })
+    }
+  })
+}
+
+function getCookie (k, user) {
+
+  return new Promise(function (resolve, reject) {
+    axios.get(user.url.replace(/online\S+/, 'online'))
+      .then(function (response) {
+
+        var cookie = response.headers['set-cookie'][0];
+        request.post({
+            url: user.url,
+            form: {
+              accountCode: user.name,
+              accountPass: user.pass,
+              wrong: ''
+            },
+            headers : {
+              Cookie : cookie
+            }
+          },
+          function (error, response, body) {
+            if (!error && response.statusCode == 200 && response.body.length <= 1000) {
+              config.cookie[k] = cookie + ";user_cookie=" + config.userAndPass[k].name + "-null";
+              resolve(k);
+            } else {
+              reject(k)
+            }
+          }
+        )
+      })
+  })
+
+}
+
+function runNow () {
   console.log('\n每' + interval + '分钟查询三座公寓所有楼层，查询到空房间后会停止查询并把空房间打印在控制台上')
   console.log('如果你安装了chrome,会弹出Chrome浏览器提示你！你要做的只是喝喝咖啡静静等候~\n')
 
   loop()
   setInterval(loop, 1000 * 60 * interval)
-
 
   function loop () {
     if (!isPolling) return
@@ -141,8 +207,8 @@ function alert (map) {
       try {
         if (config.queryConfig[map.id].isQuery) {
           for (let i = map.from; i <= map.to; i++) {
-            map.data.buildingFloor = i;
-            run(JSON.parse(JSON.stringify(map)));
+            map.data.buildingFloor = i
+            run(JSON.parse(JSON.stringify(map)))
           }
         }
       } catch (ex) {}
@@ -153,11 +219,11 @@ function alert (map) {
     let findList = []
 
     var options = {
-      url : map.url,
-      headers : {
-        'Cookie' : map.cookie
+      url: map.url,
+      headers: {
+        'Cookie': config.cookie[map.cookie]
       },
-      form : map.data
+      form: map.data
     }
 
     request.post(
@@ -177,16 +243,18 @@ function alert (map) {
               console.log('已经查询到房间，自动查询终止！！')
               alert(map)
             } else {
-              console.log(`${map.desc} \t ${map.data.buildingFloor}楼 \t 查询结果:没有房间`);
+              console.log(`${map.desc} \t ${map.data.buildingFloor}楼 \t 查询结果:没有房间`)
             }
 
             json = null
           } catch (ex) {
             console.warn(`请求错误 ${map.desc} ${map.data.buildingFloor}楼, 错误原因 : ${ex.message}`)
+            refreshCookie();
           }
         } else {
           console.warn('请求错误')
-          console.warn("可能原因, session超时");
+          console.warn('可能原因, session超时');
+          refreshCookie();
         }
       }
     )
@@ -213,5 +281,4 @@ function alert (map) {
       }
     }
   }
-
-})()
+}
