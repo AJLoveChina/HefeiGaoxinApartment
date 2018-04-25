@@ -12,5 +12,7 @@
 2018年02月02日 更新\
 高新区三个公寓网站添加了Session认证, 所以在使用前需要填写用户名与密码, 如下图所示.
 填写完成之后双击 run.bat即可^_^
+下载ZIP文件后解压
+https://github.com/AJLoveChina/HefeiGaoxinApartment/releases/download/1.0/HefeiGaoxinApartment.zip
 
 ![ScreenShot](https://raw.github.com/AJLoveChina/HefeiGaoxinApartment/master/asserts/nameandpass.png?t=2018年2月2日)
