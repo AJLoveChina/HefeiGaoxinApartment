@@ -1,6 +1,9 @@
 <p align="center" style='font-size:16px;'><b>高新区公寓空房间自动查询工具</b></p>
 <p align="center">不要攻击, 仅仅为了申请房间而使用</p>
 
+###2018年6月29日公寓网站添加了极验验证码防御,目前还没有好的破解方法.o(╯□╰)o
+
+<del>
 #### 写在前面
 <p style="font-size:12px;">考虑到部分朋友不知道如何使用git或者node这样的命令，我简化了使用方法，下载后直接运行`run.bat`就可以了。</p>
 
@@ -16,3 +19,4 @@
 https://github.com/AJLoveChina/HefeiGaoxinApartment/releases/download/1.0/HefeiGaoxinApartment.zip
 
 ![ScreenShot](https://raw.github.com/AJLoveChina/HefeiGaoxinApartment/master/asserts/nameandpass.png?t=2018年2月2日)
+</del>

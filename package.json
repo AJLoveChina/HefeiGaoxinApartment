@@ -1,8 +1,29 @@
 {
+  "name": "HefeiGaoxinApartment",
+  "version": "1.0.0",
+  "description": "<p align=\"center\" style='font-size:16px;'><b>高新区公寓空房间自动查询工具</b></p>\r <p align=\"center\">不要攻击, 仅仅为了申请房间而使用</p>",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node.exe index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AJLoveChina/HefeiGaoxinApartment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AJLoveChina/HefeiGaoxinApartment/issues"
+  },
   "dependencies": {
     "axios": "^0.17.1",
     "moment": "^2.18.1",
     "opn": "^5.1.0",
     "request": "^2.81.0"
-  }
+  },
+  "homepage": "https://github.com/AJLoveChina/HefeiGaoxinApartment#readme"
 }
