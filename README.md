@@ -1,9 +1,14 @@
 <p align="center" style='font-size:16px;'><b>高新区公寓空房间自动查询工具</b></p>
-<p align="center">不要攻击, 仅仅为了申请房间而使用</p>
+<p align="center">不要攻击网站, 因为他们的服务器性能很差, 仅仅为了申请房间而使用</p>
 
-###2018年6月29日公寓网站添加了极验验证码防御,目前还没有好的破解方法.o(╯□╰)o
+2018年11月11日公寓网站取消了极验验证码功能:)\
+<del>2018年6月29日公寓网站添加了极验验证码防御,目前还没有好的破解方法.o(╯□╰)o</del>
 
-<del>
+合肥高新区三座公寓申请地址<br/>
+创新 http://36.7.87.209:8088/online/    <br/>
+明珠 http://36.7.87.172:8088/online/  <br/>
+皖水 http://117.71.57.99:9080/online/  <br/>
+
 #### 写在前面
 <p style="font-size:12px;">考虑到部分朋友不知道如何使用git或者node这样的命令，我简化了使用方法，下载后直接运行`run.bat`就可以了。</p>
 
@@ -19,4 +24,3 @@
 https://github.com/AJLoveChina/HefeiGaoxinApartment/releases/download/1.0/HefeiGaoxinApartment.zip
 
 ![ScreenShot](https://raw.github.com/AJLoveChina/HefeiGaoxinApartment/master/asserts/nameandpass.png?t=2018年2月2日)
-</del>
